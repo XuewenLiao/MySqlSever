@@ -7,7 +7,7 @@ type ReportDataModel struct {
 	VodTaskId      string `gorm:"column:vod_task_id"`
 	AppId          int64  `gorm:"column:app_id"`
 	Region         string `gorm:"column:region"`
-	FileId         int64  `gorm:"column:file_id"`
+	FileId         string `gorm:"column:file_id"`
 	BizId          int64  `gorm:"column:biz_id"`
 	TaskId         string `gorm:"column:task_id"`
 	TaskHost       string `gorm:"column:task_host"`
@@ -41,6 +41,15 @@ type ReportDataModel struct {
 //插入数据的方法
 func (r *ReportDataModel) Create() error {
 	return DB.Self.Create(&r).Error
+}
+
+//查询数据的方法
+func GetData(appid int64, startTime string, endTime string) ([]ReportDataModel, error) {
+
+	var r []ReportDataModel
+	d := DB.Self.Where("app_id = ? AND created_at >= ? AND created_at <= ?", appid, startTime, endTime).Find(&r)
+
+	return r, d.Error
 }
 
 ////设置表名
