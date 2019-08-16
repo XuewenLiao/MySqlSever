@@ -79,7 +79,7 @@ func ReportDataCreate(reportMap map[string]interface{}, standard string, num int
 
 		//插入数据
 		if err := r.Create(); err != nil {
-			log.Fatal("Insert Fail !")
+			log.Printf("Insert Fail : %v",err)
 		} else {
 			log.Printf("Insert Success !")
 		}

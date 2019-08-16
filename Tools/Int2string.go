@@ -18,6 +18,9 @@ func Int2String(data interface{}) string {
 	case int:
 		re = strconv.Itoa(data.(int))
 		break
+
+	case float64:
+		re = strconv.FormatFloat(data.(float64), 'E', -1, 64)
 	}
 
 	return re

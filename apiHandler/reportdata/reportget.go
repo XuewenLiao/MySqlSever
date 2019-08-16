@@ -31,26 +31,3 @@ func ReportDataGet(appid int64, startTime string, endTime string) []interface{} 
 
 }
 
-//func ReportDataGet(appid int64, startTime string, endTime string) []model.ReportDataModel{
-//
-//
-//
-//	r,err := model.GetData(appid,startTime,endTime)
-//	if err != nil {
-//		log.Fatal("Get Fail：",err)
-//	}else {
-//		log.Print("Get Success,Message is : ",r)
-//		log.Print("Message type is : ",reflect.TypeOf(r))
-//	}
-//
-//	////[]type{数组} 转换为 []interface{}
-//	//var interfaceSlice []interface{} = make([]interface{},len(r))
-//	//for index,data := range r {
-//	//	interfaceSlice[index] = data
-//	//	log.Print("interfaceSlice type is : ",reflect.TypeOf(data))
-//	//}
-//
-//
-//	return r
-//
-//}
